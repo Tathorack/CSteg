@@ -1,6 +1,5 @@
-/*
+/**
  * @author    Rhys Hansen
- * @version
  * @copyright Copyright 2017 Rhys Hansen
  */
 
@@ -36,7 +35,8 @@ LSBsteganography::~LSBsteganography() {
 
 /**
  * @brief Load an image from a file
- * @details Loads an image file using openCV. Refer to the openCV documentation for file format support https://docs.opencv.org
+ * @details Loads an image file using openCV
+ * @details Refer to the openCV documentation for file format information https://docs.opencv.org
  * @param[in] imagepath The path to load an image from
  * @throw StegFileExc image not loaded
  */
@@ -55,7 +55,7 @@ void LSBsteganography::loadImage(const string imagepath){
 /**
  * @brief Saves the current image to a file
  * @details Saves an image file to a lossless file format using openCV. Accepted lossless file formats are bmp, dlb, png, tif, & tiff.
- * Refer to the openCV documentation for file format support https://docs.opencv.org
+ * @details Refer to the openCV documentation for file format information https://docs.opencv.org
  * @param[in] imagepath The path to save an image at
  * @throws StegImageExc no image to save
  * @throws StegFileExc file extension is not lossless
@@ -83,7 +83,7 @@ void LSBsteganography::saveImage(const string imagepath){
 
 /**
  * @brief Clear the current image from memory
- * @details calls Mat.release() on the current image. Refer to openCV documentation https://docs.opencv.org
+ * @details calls Mat::release() on the current image. Refer to openCV documentation https://docs.opencv.org
  */
 void LSBsteganography::clearimage(){
 	image.release();

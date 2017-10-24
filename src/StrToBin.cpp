@@ -1,8 +1,5 @@
-/*
- * @brief     main.cpp
- * @details
+/**
  * @author    Rhys Hansen
- * @version
  * @copyright Copyright 2017 Rhys Hansen
  */
 
@@ -13,23 +10,29 @@ using namespace std;
 
 StrToBin::StrToBin(const string& text)
 : _text (text)
-, _scount (0)
-, _hcount (0)
-, _bcount (0)
+, _sindex (0)
+, _hindex (0)
+, _bindex (0)
 {
    _currentbyte = bitset<8>(_text[0]);
    _sizeheader = bitset<32>(sizeof(uint32_t) + (sizeof(char) * _text.length()));
 }
 
+
+/**
+ * @brief Returns the next bit
+ * @details
+ * @returns Next bit in message
+ */
 bool StrToBin::next(){
    if (!end()){
-      if (_hcount < 32){
-         return _sizeheader[_hcount++];
+      if (_hindex < 32){
+         return _sizeheader[_hindex++];
       } else {
-         bool output = _currentbyte[_bcount++];
-         if (_bcount >= 8){
-            _currentbyte = bitset<8>(_text[++_scount]);
-            _bcount = 0;
+         bool output = _currentbyte[_bindex++];
+         if (_bindex >= 8){
+            _currentbyte = bitset<8>(_text[++_sindex]);
+            _bindex = 0;
          }
          return output;
       }
@@ -38,12 +41,17 @@ bool StrToBin::next(){
    }
 }
 
+/**
+ * @brief Checks if at end of #_text
+ * @returns true if at end else false
+ */
 bool StrToBin::end(){
-   if (_scount >= _text.length()){
+   if (_sindex >= _text.length()){
       return true;
    }
    return false;
 }
+
 
 uint32_t StrToBin::getsize(){
    return _sizeheader.to_ulong();

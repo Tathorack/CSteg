@@ -1,7 +1,5 @@
-/*
- * @brief Class for performing least significant bit steganography
+/**
  * @author    Rhys Hansen
- * @version
  * @copyright Copyright 2017 Rhys Hansen
  */
 
@@ -9,12 +7,13 @@
 #define LSBSTEGANOGRAPHY_H_
 
 #include <set>
+#include <string>
 #include <opencv2/opencv.hpp>
 
 using namespace std;
 using namespace cv;
 
-/*
+/**
  * @brief Class for performing least significant bit steganography
  */
 class LSBsteganography {
@@ -27,8 +26,8 @@ public:
 	void encode(const string message);
 	string decode();
 private:
-	Mat image;
-	static const set<string> llext;
+	Mat image; /**< Image to perform LSB steganography on */
+	static const set<string> llext; /**< Set of accepted lossless image file extensions for saveImage(). These are bmp, dlb, png, tif, & tiff. */
 	void lsbset(uchar& byte, bool bit);
 	bool lsbget(uchar& byte);
 };

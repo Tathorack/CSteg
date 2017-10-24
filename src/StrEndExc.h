@@ -1,11 +1,6 @@
-/*
- * @brief     main.cpp
- * @details
+/**
  * @author    Rhys Hansen
- * @version
  * @copyright Copyright 2017 Rhys Hansen
- *      Adapted from Poco/Exception
- *      https://pocoproject.org/docs/Poco.Exception.html
  */
 
 #ifndef STRENDEXC_H_
@@ -16,7 +11,12 @@
 
 using namespace std;
 
-class StrEndExc: public std::exception {
+/**
+ * @brief String End Exception
+ * @details Thrown when StrToBin and BinToStr reach the end of the string that they are encoding.
+ * @details Adapted from Poco/Exception https://pocoproject.org/docs/Poco.Exception.html
+ */
+class StrEndExc: public exception {
 public:
    StrEndExc();
    StrEndExc(const string& msg);
@@ -25,7 +25,7 @@ public:
    virtual const char* name() const throw();
    virtual string displayText() const;
 private:
-   string _msg;
+   string _msg; /**< Additional error message. Can be empty */
 };
 
 #endif /* STRENDEXC_H_ */
