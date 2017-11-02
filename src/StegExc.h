@@ -6,23 +6,16 @@
 #ifndef STEGEXC_H_
 #define STEGEXC_H_
 
-#include <string>
-#include <exception>
+#include "BaseException.h"
 
 using namespace std;
 
 /**
  * @brief Steganography Exception
- * @details Base Exception class to be thrown by LSBsteganography.
- * @details Adapted from Poco/Exception https://pocoproject.org/docs/Poco.Exception.html
+ * @details Class for all exceptions to be thrown by LSBsteganography.
  */
-class StegExc: public exception {
+class StegExc: public BaseException {
 public:
-   /**
-    * @brief Default constructor
-    */
-   StegExc();
-
    /**
     * @brief Constructor with message
     * @details Allows you to throw a custom message that gets appended to the the exception name.
@@ -33,27 +26,13 @@ public:
    /**
     * @brief Default destructor
     */
-   virtual ~StegExc() throw ();
-
-   /**
-    * @brief Override of std::exception::what() for compatibility
-    * @returns name()
-    */
-   virtual const char* what() const throw();
+   virtual ~StegExc() throw();
 
    /**
     * @brief Exception name
     * @returns "Steganography Exception"
     */
    virtual const char* name() const throw();
-
-   /**
-    * @brief Returns exception text
-    * @details Returns exception information with name() appended with #_msg if _msg is not empty.
-    * @details Adapted from Poco/Exception https://pocoproject.org/docs/Poco.Exception.html
-    * @returns name() or "name(): _msg"
-    */
-   virtual string displayText() const;
 private:
    string _msg; /**< Additional error message. Can be empty */
 };

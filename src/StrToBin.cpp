@@ -4,7 +4,7 @@
  */
 
 #include "StrToBin.h"
-#include "StrEndExc.h"
+#include "CodecExc.h"
 
 using namespace std;
 

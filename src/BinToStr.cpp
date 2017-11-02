@@ -4,7 +4,7 @@
  */
 
 #include "BinToStr.h"
-#include "StrEndExc.h"
+#include "CodecExc.h"
 
 BinToStr::BinToStr()
 : _text ("")

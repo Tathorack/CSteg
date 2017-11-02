@@ -7,35 +7,18 @@
 
 using namespace std;
 
-StegExc::StegExc(){
-
-}
-
 StegExc::StegExc(const string& msg)
-: _msg (msg)
+: BaseException(msg)
 {
 
 }
 
-StegExc::~StegExc() throw (){
+StegExc::~StegExc() throw(){
 
-}
-
-const char* StegExc::what() const throw(){
-   return name();
 }
 
 const char* StegExc::name() const throw(){
    return "Steganography Exception";
-}
-
-string StegExc::displayText() const{
-   string txt = name();
-      if (!_msg.empty()) {
-         txt.append(": ");
-         txt.append(_msg);
-      }
-      return txt;
 }
 
 StegFileExc::StegFileExc(const string& msg)

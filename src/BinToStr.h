@@ -13,7 +13,7 @@
 using namespace std;
 
 /**
- * @brief Class for converting a series of bits generated with StrToBin to be converted back to a string.
+ * @brief Class for converting a series of bits generated with StrToBin back to a string.
  * @details The message is input one bit at a time by calling next().
  * Before the the message a uint32_t header with the size of the header and the message is read.
  * This allows BinToStr to know when to end when decoding the string.
