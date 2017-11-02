@@ -31,7 +31,7 @@ void BinToStr::next(const bool bit){
 }
 
 bool BinToStr::end(){
-   if (_text.length() >= size() - sizeof(uint32_t)){
+   if (_text.length() >= getsize() - sizeof(uint32_t)){
       return true;
    }
    return false;
@@ -41,7 +41,7 @@ std::string BinToStr::result(){
    return _text;
 }
 
-uint32_t BinToStr::size(){
+uint32_t BinToStr::getsize(){
    if (_hindex < 32){
       return 0;
    } else {

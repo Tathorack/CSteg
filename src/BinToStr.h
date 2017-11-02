@@ -22,11 +22,37 @@ using namespace std;
  */
 class BinToStr {
 public:
+   /**
+    * @brief Default constructor
+    */
    BinToStr();
+
+   /**
+    * @brief Adds the next bit to the current message
+    * @details
+    * @param[in] bit The bit to add to the current message
+    */
    void next(const bool bit);
+
+   /**
+    * @brief Checks if at end of #_text
+    * @details Uses the size encoded in the header to determine if the end of the message has been reached
+    * @returns true if at end else false
+    */
    bool end();
+
+   /**
+    * @brief Returns the result as currently encoded
+    * @details Should only be called after end() == true or StrEndExc is thrown
+    * @returns The string created from the binary stream
+    */
    string result();
-   uint32_t size();
+
+   /**
+   * @brief Gets the size of the message in bytes including the header
+   * @returns Size of message and header if header has been read else returns 0
+   */
+   uint32_t getsize();
 private:
    string _text;     /**< Message being decoded */
    bitset<32> _size; /**< Size of message in bytes including header */
