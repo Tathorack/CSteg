@@ -18,11 +18,41 @@ using namespace std;
  */
 class StegExc: public exception {
 public:
+   /**
+    * @brief Default constructor
+    */
    StegExc();
+
+   /**
+    * @brief Constructor with message
+    * @details Allows you to throw a custom message that gets appended to the the exception name.
+    * @param[in] msg custom message to append to exception name when calling displayText().
+    */
    StegExc(const string& msg);
+
+   /**
+    * @brief Default destructor
+    */
    virtual ~StegExc() throw ();
+
+   /**
+    * @brief Override of std::exception::what() for compatibility
+    * @returns name()
+    */
    virtual const char* what() const throw();
+
+   /**
+    * @brief Exception name
+    * @returns "Steganography Exception"
+    */
    virtual const char* name() const throw();
+
+   /**
+    * @brief Returns exception text
+    * @details Returns exception information with name() appended with #_msg if _msg is not empty.
+    * @details Adapted from Poco/Exception https://pocoproject.org/docs/Poco.Exception.html
+    * @returns name() or "name(): _msg"
+    */
    virtual string displayText() const;
 private:
    string _msg; /**< Additional error message. Can be empty */
@@ -34,7 +64,17 @@ private:
  */
 class StegFileExc: public StegExc {
 public:
+   /**
+    * @brief Constructor with message
+    * @details Allows you to throw a custom message that gets appended to the the exception name.
+    * @param[in] msg custom message to append to exception name when calling displayText().
+    */
    StegFileExc(const string& msg);
+
+   /**
+    * @brief Exception name
+    * @returns "File Exception"
+    */
    virtual const char* name() const throw();
 };
 
@@ -44,7 +84,17 @@ public:
  */
 class StegImageExc: public StegExc {
 public:
+   /**
+    * @brief Constructor with message
+    * @details Allows you to throw a custom message that gets appended to the the exception name.
+    * @param[in] msg custom message to append to exception name when calling displayText().
+    */
    StegImageExc(const string& msg);
+
+   /**
+    * @brief Exception name
+    * @returns "Image Exception"
+    */
    virtual const char* name() const throw();
 };
 

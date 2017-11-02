@@ -22,9 +22,29 @@ using namespace std;
  */
 class StrToBin {
 public:
+   /**
+    * @brief Default constructor
+    * @param[in] text String to be converted to binary stream
+    */
    StrToBin(const string& text);
+
+   /**
+    * @brief Returns the next bit
+    * @details
+    * @returns Next bit in message
+    */
    bool next();
+
+   /**
+    * @brief Checks if at end of #_text
+    * @returns true if at end else false
+    */
    bool end();
+
+   /**
+    * @brief Gets the size of the message in bytes including the header
+    * @returns Size of message and header
+    */
    uint32_t getsize();
 private:
    const string _text;     /**< Message to be encoded */
