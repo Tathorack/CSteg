@@ -35,7 +35,7 @@ public:
 	 * @param[in] imagepath The path to load an image from
 	 * @throw StegFileExc image not loaded
 	 */
-	void loadImage(const string imagepath);
+	void loadImage(const string& imagepath);
 
 	/**
 	 * @brief Saves the current image to a file
@@ -46,7 +46,7 @@ public:
 	 * @throws StegFileExc file extension is not lossless
 	 * @throws StegFileExc cv::Exception.what()
 	 */
-	void saveImage(const string imagepath);
+	void saveImage(const string& imagepath);
 	/**
 	 * @brief Clear the current image from memory
 	 * @details calls Mat::release() on the current image. Refer to openCV documentation https://docs.opencv.org
@@ -61,7 +61,7 @@ public:
 	 * @throws StegExc image not large enough for message
 	 * @throws StegImageExc image size is less than 0!?
 	 */
-	void encode(const string message);
+	void encode(const string& message);
 
 	/**
 	 * @brief Steganographically decode a string from the currently open image

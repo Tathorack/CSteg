@@ -26,7 +26,7 @@ LSBsteganography::~LSBsteganography() {
 	LSBsteganography::clearimage();
 }
 
-void LSBsteganography::loadImage(const string imagepath){
+void LSBsteganography::loadImage(const string& imagepath){
 //   if an image already is loaded clear it
 	if (image.data){
 		clearimage();
@@ -38,7 +38,7 @@ void LSBsteganography::loadImage(const string imagepath){
 	}
 }
 
-void LSBsteganography::saveImage(const string imagepath){
+void LSBsteganography::saveImage(const string& imagepath){
 //   check for image data
 	if (!image.data){
 		throw StegImageExc("no image to save");
@@ -62,7 +62,7 @@ void LSBsteganography::clearimage(){
 	image.release();
 }
 
-void LSBsteganography::encode(const string message){
+void LSBsteganography::encode(const string& message){
    StrToBin msg = StrToBin(message);
    int imagesize = (image.cols * image.rows * image.channels()) / 8;
    if (imagesize < 0){
